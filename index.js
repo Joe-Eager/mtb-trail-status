@@ -9,6 +9,7 @@ const auth = jsonData.auth
 var dataStuff
 var dataStuffTwo
 var dataStuffThree
+var dataStuffFour
 
 const jsonTable = {
   hampHill: {
@@ -38,6 +39,10 @@ const jsonTable = {
     status: {},
     tweet: {},
     bool: true
+  },
+  vulturesKnob: {
+    status: {},
+    tweet: {}
   }
 }
 
@@ -89,6 +94,24 @@ async.series([
     }).then((res) => {
       dataStuffThree = res.data.data
       callback(null, dataStuffThree)
+    },
+      (err) => {
+        console.log(err)
+        callback(err, null)
+      }
+    )
+  },
+  function (callback) {
+    axios({
+      method: 'GET',
+      url: url.vulture,
+      headers: {
+        Authorization: auth,
+        "Access-Control-Allow-Origin": true
+      }
+    }).then((res) => {
+      dataStuffFour = res.data.data
+      callback(null, dataStuffFour)
     },
       (err) => {
         console.log(err)
@@ -175,6 +198,18 @@ async.series([
         }
       }
     }
+    console.log('\n==========\n')
+    var obj4 = dataStuffFour[0]
+    var string4 = JSON.stringify(obj4.text)
+    jsonTable.vulturesKnob.tweet = string4
+    if (/open/i.test(string4)) {
+      jsonTable.vulturesKnob.status = 'O open'
+      console.log(chalk.green('\nVulture\'s Knob:\n' + jsonTable.vulturesKnob.status + '\n' + jsonTable.vulturesKnob.tweet))
+    } else {
+      jsonTable.vulturesKnob.status = 'X closed'
+      console.log(chalk.red('\nVulture\'s Knob:\n' + jsonTable.vulturesKnob.status + '\n' + jsonTable.vulturesKnob.tweet))
+    }
+    console.log('\n==========\n')
     console.log(chalk.magenta('\nHAVE FUN GETTING HURT!'))
   }
 ])
