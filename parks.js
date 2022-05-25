@@ -13,7 +13,7 @@ export default function jsonTable(string, type) {
             status: {},
             tweet: {},
             bool: true,
-            regex: /bedford/i.test(string)
+            regex: ''
         },
         royalView: {
             status: {},
