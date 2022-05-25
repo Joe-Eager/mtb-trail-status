@@ -13,10 +13,10 @@ let dataStuff = {}, dataStuffTwo = {}, dataStuffThree = {}, dataStuffFour = {};
 
 const scanner = (data, type) => {
   for (let i = 0; i < 20; i++) {
-    const obj = data[i];
-    const string = obj.text;
+    const obj = data[i]
+    const string = obj.text
     jsonTable(string, type)
-    if (/bedford/i.test(string) && data.bool) {
+    if (data.regex && data.bool) {
       data.tweet = string
       data.bool = false
       if (/open/i.test(string)) {
@@ -60,7 +60,7 @@ async.series([
     }).then((res) => {
       dataStuff = res.data.data
       scanner(dataStuff, 'bedford'),
-      callback(null, dataStuff)
+        callback(null, dataStuff)
     },
       (err) => {
         console.log(err)

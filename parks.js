@@ -13,7 +13,7 @@ export default function jsonTable(string, type) {
             status: {},
             tweet: {},
             bool: true,
-            regex: ''
+            regex: /bedford/i.test(string)
         },
         royalView: {
             status: {},
@@ -35,12 +35,7 @@ export default function jsonTable(string, type) {
             tweet: {}
         }
     }
-    switch (type) {
-        case 'bedford':
-            return data.bedford
-            break
-        default:
-            return data
+    if (type === 'bedford') {
+        return data.bedford
     }
-
 }
