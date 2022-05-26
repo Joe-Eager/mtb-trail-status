@@ -1,7 +1,7 @@
 # mtb-trail-status
 Find the status of trails in CLE
 
-All it needs is the twitter api tokens and links in a ./secret/secret.json
+All you need is the twitter api tokens in the ./secret/secret.json
 
 Then just run
 
