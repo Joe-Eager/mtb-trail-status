@@ -6,17 +6,8 @@
   },
   "type": "module",
   "name": "mtb-trail-status",
-  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "bike": "node index"
-  },
-  "keywords": [
-    "bike",
-    "trail",
-    "status"
-  ],
-  "author": "me",
-  "license": "ISC",
-  "description": "trail status?"
+  }
 }
