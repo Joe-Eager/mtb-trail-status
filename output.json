@@ -1,0 +1,37 @@
+{
+    "hampHill": {
+        "name": "Hampton Hills",
+        "status": "",
+        "tweet": ""
+    },
+    "eastRim": {
+        "name": "East Rim",
+        "status": "",
+        "tweet": ""
+    },
+    "bedford": {
+        "name": "Bedford",
+        "status": "",
+        "tweet": ""
+    },
+    "royalView": {
+        "name": "Royalview",
+        "status": "",
+        "tweet": ""
+    },
+    "westCreek": {
+        "name": "West Creek",
+        "status": "",
+        "tweet": ""
+    },
+    "OECR": {
+        "name": "Ohio & Erie Canal Reservation",
+        "status": "",
+        "tweet": ""
+    },
+    "vulturesKnob": {
+        "name": "Vultures Knob",
+        "status": "",
+        "tweet": ""
+    }
+}
