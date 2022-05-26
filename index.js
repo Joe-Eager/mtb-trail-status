@@ -11,40 +11,24 @@ const auth = jsonData.auth
 
 let dataStuff = {}, dataStuffTwo = {}, dataStuffThree = {}, dataStuffFour = {};
 
-const scanner = (data, type) => {
-  for (let i = 0; i < 20; i++) {
+const scanner = (data, type, bool) => {
+  for (let i = 0; i < data.length; i++) {
     const obj = data[i]
     const string = obj.text
-    jsonTable(string, type)
-    if (data.regex && data.bool) {
-      data.tweet = string
-      data.bool = false
+    const param = jsonTable(string, type)
+    if (param.regex && bool) {
+      param.tweet = string
+      bool = false
       if (/open/i.test(string)) {
-        data.status = 'O open'
+        param.status = 'O open'
         console.log('\n==========\n')
-        console.log(chalk.green(data.name + data.status + '\n' + data.tweet))
+        console.log(chalk.green(param.name + '\n' + param.status + '\n' + param.tweet))
       } else {
-        data.status = 'X closed'
+        param.status = 'X closed'
         console.log('\n==========\n')
-        console.log(chalk.red(data.name + data.status + '\n' + data.tweet))
+        console.log(chalk.red(param.name + '\n' + param.status + '\n' + param.tweet))
       }
     }
-  }
-}
-
-const only = (data, json) => {
-  console.log('\n==========\n')
-  const obj = data[0]
-  const string = JSON.stringify(obj.text)
-  json.tweet = string
-  if (/open/i.test(string)) {
-    json.status = 'O open'
-    console.log('\n==========\n')
-    console.log(chalk.green(json.name + json.status + '\n' + json.tweet))
-  } else {
-    json.status = 'X closed'
-    console.log('\n==========\n')
-    console.log(chalk.red(json.name + json.status + '\n' + json.tweet))
   }
 }
 
@@ -59,8 +43,7 @@ async.series([
       }
     }).then((res) => {
       dataStuff = res.data.data
-      scanner(dataStuff, 'bedford'),
-        callback(null, dataStuff)
+      callback(null, dataStuff)
     },
       (err) => {
         console.log(err)
@@ -121,6 +104,13 @@ async.series([
         callback(err, null)
       }
     )
+    scanner(dataStuff, 'bedford', true)
+    scanner(dataStuffTwo, 'eastRim', true)
+    scanner(dataStuffThree, 'hampHill', true)
+    scanner(dataStuff, 'OECR', true)
+    scanner(dataStuff, 'royalView', true)
+    scanner(dataStuff, 'westCreek', true)
+    scanner(dataStuffFour, 'vulturesKnob', true)
     console.log('\n==========\n')
     console.log(chalk.magenta('\nHAVE FUN GETTING HURT!'))
   }

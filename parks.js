@@ -1,41 +1,68 @@
 export default function jsonTable(string, type) {
     const data = {
         hampHill: {
-            status: {},
-            tweet: {}
+            name: 'Hampton Hills',
+            status: '',
+            tweet: '',
+            bool: true,
+            regex: /trails/i.test(string)
         },
         eastRim: {
-            status: {},
-            tweet: {}
+            name: 'East Rim',
+            status: '',
+            tweet: '',
+            bool: true,
+            regex: /east\srim/i.test(string)
         },
         bedford: {
-            name: 'bedford',
-            status: {},
-            tweet: {},
+            name: 'Bedford',
+            status: '',
+            tweet: '',
             bool: true,
             regex: /bedford/i.test(string)
         },
         royalView: {
-            status: {},
-            tweet: {},
-            bool: true
+            name: 'Royalview',
+            status: '',
+            tweet: '',
+            bool: true,
+            regex: /royalview/i.test(string)
         },
         westCreek: {
-            status: {},
-            tweet: {},
-            bool: true
+            name: 'West Creek',
+            status: '',
+            tweet: '',
+            bool: true,
+            regex: /west\screek/i.test(string)
         },
         OECR: {
-            status: {},
-            tweet: {},
-            bool: true
+            name: 'O & ECR',
+            status: '',
+            tweet: '',
+            bool: true,
+            regex: /erie\scanal/i.test(string)
         },
         vulturesKnob: {
-            status: {},
-            tweet: {}
+            name: 'Vultures Knob',
+            status: '',
+            tweet: '',
+            bool: true,
+            regex: /status/i.test(string)
         }
     }
-    if (type === 'bedford') {
+    if (type === 'hampHill') {
+        return data.hampHill
+    } else if (type === 'eastRim') {
+        return data.eastRim
+    } else if (type === 'bedford') {
         return data.bedford
+    } else if (type === 'royalView') {
+        return data.royalView
+    } else if (type === 'westCreek') {
+        return data.westCreek
+    } else if (type === 'OECR') {
+        return data.OECR
+    } else {
+        return data.vulturesKnob
     }
 }
