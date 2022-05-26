@@ -9,10 +9,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "bike": "node index"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "bike",
+    "trail",
+    "status"
+  ],
+  "author": "me",
   "license": "ISC",
-  "description": ""
+  "description": "trail status?"
 }

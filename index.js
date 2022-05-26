@@ -104,6 +104,8 @@ async.series([
         callback(err, null)
       }
     )
+  },
+  function () {
     scanner(dataStuff, 'bedford', true)
     scanner(dataStuffTwo, 'eastRim', true)
     scanner(dataStuffThree, 'hampHill', true)

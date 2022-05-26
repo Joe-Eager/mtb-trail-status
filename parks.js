@@ -5,7 +5,7 @@ export default function jsonTable(string, type) {
             status: '',
             tweet: '',
             bool: true,
-            regex: /trails/i.test(string)
+            regex: /trail/i.test(string)
         },
         eastRim: {
             name: 'East Rim',
@@ -62,7 +62,7 @@ export default function jsonTable(string, type) {
         return data.westCreek
     } else if (type === 'OECR') {
         return data.OECR
-    } else {
+    } else if (type === 'vulturesKnob') {
         return data.vulturesKnob
     }
 }
