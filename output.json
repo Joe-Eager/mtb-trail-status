@@ -37,7 +37,7 @@
   },
   "vulturesKnob": {
     "name": "Vultures Knob",
-    "status": "O open",
+    "status": true,
     "tweet": "5/28 Trail Status: OPEN - but use caution ⚠️ We have a tree down for sure after Suspension Bridge. Hopefully nothing too muddy. Use your best judgement. https://t.co/zZ1s9RycBE",
     "url": "https://mobile.twitter.com/VulturesKnobMTB"
   }

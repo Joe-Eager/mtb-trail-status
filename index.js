@@ -33,95 +33,99 @@ const scanner = (data, type, bool) => {
   }
 }
 
-async.series([
-  function (callback) {
-    axios({
-      method: 'GET',
-      url: url.cleMetro,
-      headers: {
-        Authorization: auth,
-        "Access-Control-Allow-Origin": true
-      }
-    }).then((res) => {
-      dataStuff = res.data.data
-      callback(null, dataStuff)
-    },
-      (err) => {
-        console.log(err)
-        callback(err, null)
-      }
-    )
-  },
-  function (callback) {
-    axios({
-      method: 'GET',
-      url: url.eastRim,
-      headers: {
-        Authorization: auth,
-        "Access-Control-Allow-Origin": true
-      }
-    }).then((res) => {
-      dataStuffTwo = res.data.data
-      callback(null, dataStuffTwo)
-    },
-      (err) => {
-        console.log(err)
-        callback(err, null)
-      }
-    )
-  },
-  function (callback) {
-    axios({
-      method: 'GET',
-      url: url.hampHill,
-      headers: {
-        Authorization: auth,
-        "Access-Control-Allow-Origin": true
-      }
-    }).then((res) => {
-      dataStuffThree = res.data.data
-      callback(null, dataStuffThree)
-    },
-      (err) => {
-        console.log(err)
-        callback(err, null)
-      }
-    )
-  },
-  function (callback) {
-    axios({
-      method: 'GET',
-      url: url.vulture,
-      headers: {
-        Authorization: auth,
-        "Access-Control-Allow-Origin": true
-      }
-    }).then((res) => {
-      dataStuffFour = res.data.data
-      callback(null, dataStuffFour)
-    },
-      (err) => {
-        console.log(err)
-        callback(err, null)
-      }
-    )
-  },
-  function () {
-    scanner(dataStuff, 'bedford', true)
-    scanner(dataStuffTwo, 'eastRim', true)
-    scanner(dataStuffThree, 'hampHill', true)
-    scanner(dataStuff, 'OECR', true)
-    scanner(dataStuff, 'royalView', true)
-    scanner(dataStuff, 'westCreek', true)
-    scanner(dataStuffFour, 'vulturesKnob', true)
-    console.log('\n==========\n')
-    console.log(chalk.magenta('\nHAVE FUN GETTING HURT!'))
-    fs.writeFile('./output.json', JSON.stringify(jsonFile, null, 2), 'utf8', function (err) {
-      if (err) {
-          return console.log(err)
-      }
+var minutes = 30, the_interval = minutes * 60 * 1000
 
-      console.log("The file was saved!")
-  })
-  }
-])
+setInterval(function () {
+  async.series([
+    function (callback) {
+      axios({
+        method: 'GET',
+        url: url.cleMetro,
+        headers: {
+          Authorization: auth,
+          "Access-Control-Allow-Origin": true
+        }
+      }).then((res) => {
+        dataStuff = res.data.data
+        callback(null, dataStuff)
+      },
+        (err) => {
+          console.log(err)
+          callback(err, null)
+        }
+      )
+    },
+    function (callback) {
+      axios({
+        method: 'GET',
+        url: url.eastRim,
+        headers: {
+          Authorization: auth,
+          "Access-Control-Allow-Origin": true
+        }
+      }).then((res) => {
+        dataStuffTwo = res.data.data
+        callback(null, dataStuffTwo)
+      },
+        (err) => {
+          console.log(err)
+          callback(err, null)
+        }
+      )
+    },
+    function (callback) {
+      axios({
+        method: 'GET',
+        url: url.hampHill,
+        headers: {
+          Authorization: auth,
+          "Access-Control-Allow-Origin": true
+        }
+      }).then((res) => {
+        dataStuffThree = res.data.data
+        callback(null, dataStuffThree)
+      },
+        (err) => {
+          console.log(err)
+          callback(err, null)
+        }
+      )
+    },
+    function (callback) {
+      axios({
+        method: 'GET',
+        url: url.vulture,
+        headers: {
+          Authorization: auth,
+          "Access-Control-Allow-Origin": true
+        }
+      }).then((res) => {
+        dataStuffFour = res.data.data
+        callback(null, dataStuffFour)
+      },
+        (err) => {
+          console.log(err)
+          callback(err, null)
+        }
+      )
+    },
+    function () {
+      scanner(dataStuff, 'bedford', true)
+      scanner(dataStuffTwo, 'eastRim', true)
+      scanner(dataStuffThree, 'hampHill', true)
+      scanner(dataStuff, 'OECR', true)
+      scanner(dataStuff, 'royalView', true)
+      scanner(dataStuff, 'westCreek', true)
+      scanner(dataStuffFour, 'vulturesKnob', true)
+      console.log('\n==========\n')
+      console.log(chalk.magenta('\nHAVE FUN GETTING HURT!'))
+      fs.writeFile('./output.json', JSON.stringify(jsonFile, null, 2), 'utf8', function (err) {
+        if (err) {
+          return console.log(err)
+        }
+
+        console.log("file saved")
+      })
+    }
+  ])
+}, the_interval)
