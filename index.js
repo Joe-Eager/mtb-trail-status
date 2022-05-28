@@ -5,11 +5,12 @@ import fs from 'fs'
 import jsonTable from './parks.js'
 
 const jsonData = JSON.parse(fs.readFileSync('./secret/secret.json', 'utf-8'))
+const jsonFile = JSON.parse(fs.readFileSync('./output.json', 'utf-8'))
 
 const url = jsonData.url
 const auth = jsonData.auth
 
-let dataStuff = {}, dataStuffTwo = {}, dataStuffThree = {}, dataStuffFour = {};
+let dataStuff = {}, dataStuffTwo = {}, dataStuffThree = {}, dataStuffFour = {}
 
 const scanner = (data, type, bool) => {
   for (let i = 0; i < data.length; i++) {
@@ -17,16 +18,16 @@ const scanner = (data, type, bool) => {
     const string = obj.text
     const param = jsonTable(string, type)
     if (param.regex && bool) {
-      param.tweet = string
+      jsonFile[type].tweet = string
       bool = false
       if (/open/i.test(string)) {
-        param.status = 'O open'
+        jsonFile[type].status = true
         console.log('\n==========\n')
-        console.log(chalk.green(param.name + '\n' + param.status + '\n' + param.tweet))
+        console.log(chalk.green(jsonFile[type].name + '\n' + jsonFile[type].status + '\n' + jsonFile[type].tweet))
       } else {
-        param.status = 'X closed'
+        jsonFile[type].status = false
         console.log('\n==========\n')
-        console.log(chalk.red(param.name + '\n' + param.status + '\n' + param.tweet))
+        console.log(chalk.red(jsonFile[type].name + '\n' + jsonFile[type].status + '\n' + jsonFile[type].tweet))
       }
     }
   }
@@ -115,5 +116,12 @@ async.series([
     scanner(dataStuffFour, 'vulturesKnob', true)
     console.log('\n==========\n')
     console.log(chalk.magenta('\nHAVE FUN GETTING HURT!'))
+    fs.writeFile('./output.json', JSON.stringify(jsonFile, null, 2), 'utf8', function (err) {
+      if (err) {
+          return console.log(err)
+      }
+
+      console.log("The file was saved!")
+  })
   }
 ])
