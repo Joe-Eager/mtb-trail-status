@@ -115,7 +115,8 @@ setInterval(function () {
       scanner(dataStuff, 'royalView', true)
       scanner(dataStuff, 'westCreek', true)
       scanner(dataStuffFour, 'vulturesKnob', true)
-      fs.writeFile('C:/Users/Joe/Code/trail-status/src/output.json', JSON.stringify(jsonFile, null, 2), 'utf8', function (err) {
+      jsonFile.update = new Date().toLocaleTimeString()
+      fs.writeFile('C:/Users/Joe/Code/trail-status/src/parts/output.json', JSON.stringify(jsonFile, null, 2), 'utf8', function (err) {
         if (err) {
           return console.log(err)
         }
