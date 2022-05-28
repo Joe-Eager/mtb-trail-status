@@ -22,18 +22,16 @@ const scanner = (data, type, bool) => {
       bool = false
       if (/open/i.test(string)) {
         jsonFile[type].status = true
-        console.log('\n==========\n')
-        console.log(chalk.green(jsonFile[type].name + '\n' + jsonFile[type].status + '\n' + jsonFile[type].tweet))
+        console.log(chalk.green(jsonFile[type].name + ' - Open'))
       } else {
         jsonFile[type].status = false
-        console.log('\n==========\n')
-        console.log(chalk.red(jsonFile[type].name + '\n' + jsonFile[type].status + '\n' + jsonFile[type].tweet))
+        console.log(chalk.red(jsonFile[type].name + ' - Closed'))
       }
     }
   }
 }
 
-var minutes = 30, the_interval = minutes * 60 * 1000
+var minutes = 5, the_interval = minutes * 60 * 1000
 
 setInterval(function () {
   async.series([
@@ -117,14 +115,12 @@ setInterval(function () {
       scanner(dataStuff, 'royalView', true)
       scanner(dataStuff, 'westCreek', true)
       scanner(dataStuffFour, 'vulturesKnob', true)
-      console.log('\n==========\n')
-      console.log(chalk.magenta('\nHAVE FUN GETTING HURT!'))
-      fs.writeFile('./output.json', JSON.stringify(jsonFile, null, 2), 'utf8', function (err) {
+      fs.writeFile('C:/Users/Joe/Code/trail-status/src/output.json', JSON.stringify(jsonFile, null, 2), 'utf8', function (err) {
         if (err) {
           return console.log(err)
         }
 
-        console.log("file saved")
+        console.log(new Date().toLocaleTimeString())
       })
     }
   ])
