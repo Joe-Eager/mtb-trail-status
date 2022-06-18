@@ -160,7 +160,7 @@ setInterval(function () {
       scanner(dataStuff, "royalView", true);
       scanner(dataStuff, "westCreek", true);
       scanner(dataStuffFour, "vulturesKnob", true);
-      jsonFile.update.time = new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString();
+      jsonFile.update.time = new Date().toString();
       fs.writeFile(
         "../trail-status/src/parts/output.json",
         JSON.stringify(jsonFile, null, 2),
@@ -170,7 +170,7 @@ setInterval(function () {
             return console.log(err);
           }
 
-          console.log(new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString());
+          console.log(new Date().toString());
         }
       );
     },

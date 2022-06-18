@@ -1,54 +1,54 @@
 {
   "hampHill": {
     "name": "Hampton Hills",
-    "time": "Today",
+    "time": "",
     "status": true,
-    "tweet": "Trails are now OPEN! Some puddling remains, please ride through. Try mountain biking this weekend!",
+    "tweet": "Update: 5/28/2022 - Trails are OPEN, surface is drying up, still some slick areas. Enjoy, ride safe!",
     "url": "https://mobile.twitter.com/SMPmountainbike"
   },
   "eastRim": {
     "name": "East Rim",
-    "time": "1.4 days ago",
+    "time": "",
     "status": false,
-    "tweet": "CVNP East Rim Trail CLOSED 6/9/22",
+    "tweet": "East Rim Trails are CLOSED 5/28/22.",
     "url": "https://mobile.twitter.com/CVNPmtb"
   },
   "bedford": {
     "name": "Bedford",
-    "time": "Today",
-    "status": true,
-    "tweet": "Bedford open 6/10",
+    "time": "",
+    "status": false,
+    "tweet": "Bedford MTB trail is closed today Saturday 5-28-22",
     "url": "https://mobile.twitter.com/CMPmtb"
   },
   "royalView": {
     "name": "Royalview",
-    "time": "Today",
+    "time": "",
     "status": false,
-    "tweet": "Royalview MTB Trails are closed Friday 6/10/22",
+    "tweet": "Royalview-- Remains Closed 05/28.",
     "url": "https://mobile.twitter.com/CMPmtb"
   },
   "westCreek": {
     "name": "West Creek",
-    "time": "Today",
-    "status": true,
-    "tweet": "West Creek Fri 6/10 Open",
+    "time": "",
+    "status": false,
+    "tweet": "West Creek remains closed Saturday 5-28-2022",
     "url": "https://mobile.twitter.com/CMPmtb"
   },
   "OECR": {
     "name": "Ohio & Erie Canal Reservation",
-    "time": "3.4 days ago",
+    "time": "",
     "status": false,
-    "tweet": "Ohio &amp; Erie Canal flow trails are closed today due to rainfall 6/7",
+    "tweet": "Ohio &amp; Erie Canal flow trails are closed today due to rain 5/16",
     "url": "https://mobile.twitter.com/CMPmtb"
   },
   "vulturesKnob": {
     "name": "Vultures Knob",
-    "time": "13.3 days ago",
+    "time": "",
     "status": true,
     "tweet": "5/28 Trail Status: OPEN - but use caution ⚠️ We have a tree down for sure after Suspension Bridge. Hopefully nothing too muddy. Use your best judgement. https://t.co/zZ1s9RycBE",
     "url": "https://mobile.twitter.com/VulturesKnobMTB"
   },
   "update": {
-    "time": "19153.9 days ago"
+    "time": ""
   }
 }
