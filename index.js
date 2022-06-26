@@ -74,10 +74,6 @@ const scanner = (data, type, bool) => {
   }
 }
 
-// var minutes = 5,
-//   the_interval = minutes * 60 * 1000;
-
-// setInterval(function () {
 async.series([
   //   function (callback) {
   //     axios({
@@ -164,7 +160,8 @@ async.series([
     scanner(goData.CMPmtb, "westCreek", true);
     scanner(goData.VulturesKnobMTB, "vulturesKnob", true);
     jsonFile.update.time = goData.lastUpdated
-    fs.writeFile(
+    console.log(goData.lastUpdated)
+    fs.writeFileSync(
       '../trail-status/src/parts/output.json',
       JSON.stringify(jsonFile, null, 2),
       'utf8',
@@ -178,4 +175,3 @@ async.series([
     )
   }
 ])
-// }, the_interval);

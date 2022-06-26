@@ -16,7 +16,7 @@ export default function jsonTable(string, type) {
             regex: /west\screek/i.test(string)
         },
         OECR: {
-            regex: /erie\scanal/i.test(string)
+            regex: !/(west\screek)|(royalview)|(bedfor)/i.test(string)
         },
         vulturesKnob: {
             regex: /status/i.test(string)
