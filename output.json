@@ -2,49 +2,49 @@
   "hampHill": {
     "name": "Hampton Hills",
     "time": "",
-    "status": true,
+    "status": false,
     "tweet": "",
     "url": "https://mobile.twitter.com/SMPmountainbike"
   },
   "eastRim": {
     "name": "East Rim",
     "time": "",
-    "status": true,
+    "status": false,
     "tweet": "",
     "url": "https://mobile.twitter.com/CVNPmtb"
   },
   "bedford": {
     "name": "Bedford",
     "time": "",
-    "status": true,
+    "status": false,
     "tweet": "",
     "url": "https://mobile.twitter.com/CMPmtb"
   },
   "royalView": {
     "name": "Royalview",
     "time": "",
-    "status": true,
+    "status": false,
     "tweet": "",
     "url": "https://mobile.twitter.com/CMPmtb"
   },
   "westCreek": {
     "name": "West Creek",
     "time": "",
-    "status": true,
+    "status": false,
     "tweet": "",
     "url": "https://mobile.twitter.com/CMPmtb"
   },
   "OECR": {
     "name": "Ohio & Erie Canal Reservation",
     "time": "",
-    "status": true,
+    "status": false,
     "tweet": "",
     "url": "https://mobile.twitter.com/CMPmtb"
   },
   "vulturesKnob": {
     "name": "Vultures Knob",
     "time": "",
-    "status": true,
+    "status": false,
     "tweet": "",
     "url": "https://mobile.twitter.com/VulturesKnobMTB"
   },
