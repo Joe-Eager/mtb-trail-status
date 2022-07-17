@@ -1,4 +1,5 @@
 import async from 'async';
+import axios from 'axios';
 import chalk from 'chalk';
 import fs from 'fs';
 import jsonTable from './parks.js';
@@ -66,6 +67,29 @@ const scanner = (data, type, bool) => {
 
 async.series([
 	function () {
+		axios.get('http://dataservice.accuweather.com/forecasts/v1/daily/5day/2237651?apikey=v1Ug0Fpwt17gIzfnBQgCXGpBtEWnkXGO')
+			.then((resp) => {
+				fs.writeFileSync(
+					'../trail-status/public/data/weather.json',
+					JSON.stringify(resp.data.DailyForecasts, null, 2),
+					'utf8',
+					function (err) {
+						if (err) {
+							return console.log(err);
+						}
+					}
+				);
+				fs.writeFileSync(
+					'../trail-status/build/data/weather.json',
+					JSON.stringify(resp.data.DailyForecasts, null, 2),
+					'utf8',
+					function (err) {
+						if (err) {
+							return console.log(err);
+						}
+					}
+				);
+			});
 		scanner(goData.CMPmtb, 'bedford', true);
 		scanner(goData.CVNPmtb, 'eastRim', true);
 		scanner(goData.SMPmountainbike, 'hampHill', true);
@@ -76,7 +100,18 @@ async.series([
 		jsonFile.update.time = goData.lastUpdated;
 		console.log(goData.lastUpdated);
 		fs.writeFileSync(
-			'../trail-status/src/parts/output.json',
+			'../trail-status/public/data/output.json',
+			JSON.stringify(jsonFile, null, 2),
+			'utf8',
+			function (err) {
+				if (err) {
+					return console.log(err);
+				}
+				console.log(new Date().toString());
+			}
+		);
+		fs.writeFileSync(
+			'../trail-status/build/data/output.json',
 			JSON.stringify(jsonFile, null, 2),
 			'utf8',
 			function (err) {
